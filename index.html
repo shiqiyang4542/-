@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>吉林大学电子信息工程</title>
+		<link rel="stylesheet" type="text/css" href="css/index.css">
+		<script type="text/javascript" src="jq/jquery-1.8.3.min.js">
+		</script>
+		<script>
+			var current_img=1;
+			function lunbo(){
+					if(current_img==4){
+						current_img=0;
+					}
+					for(var i=0;i<$(".img_number>li").length;i++){
+						if($(".img_number>li").eq(i).attr("index")==parseInt(current_img)+1){
+						var index=$(".img_number>li").eq(i).attr("index");
+						current_img=index;
+						for(var j=0;j<$(".img_number>li").length;j++){
+							$(".img_number>li").eq(j).css("background","none");
+							$(".img>li").eq(j).fadeOut();
+							if($(".img>li").eq(j).attr("index")==index){
+								$(".img>li").eq(j).fadeIn();
+								$(".img_number>li").eq(j).css("background","white");
+							}
+						}
+						
+						break;
+						}	
+					}
+					
+				}
+			$(function(){
+				/*图片轮播初始化*/
+				$(".img>li").eq(1).hide();
+				$(".img>li").eq(2).hide();
+				$(".img>li").eq(3).hide();
+				$(".img_number>li").eq(0).css("background","white");
+				
+				/*菜单下拉栏*/
+				var nav_li=$("#nav_ul>li");
+				for(var i=0;i<nav_li.length;i++){
+					nav_li.eq(i).hover(function(){
+						$(this).css("background","#2B63DE");
+						$(this).children("ul").eq(0).show();
+					},function(){
+						$(this).css("background","#2086D8");
+						$(this).children("ul").eq(0).hide();
+					});
+				}
+				/*开始轮播*/
+				var timer=setInterval("lunbo()",3000);
+
+				/*鼠标点击图片*/
+				for(var i=0;i<$(".img_number>li").length;i++){
+					$(".img_number>li").eq(i).click(function(){
+						var index=$(this).attr("index");
+						
+						current_img=index;
+
+						for(var j=0;j<$(".img_number>li").length;j++){
+							$(".img_number>li").eq(j).css("background","none");
+							$(".img>li").eq(j).fadeOut();
+							if($(".img>li").eq(j).attr("index")==index){
+								$(".img>li").eq(j).fadeIn();
+								$(".img_number>li").eq(j).css("background","white");
+							}
+						}
+						
+						clearInterval(timer);
+						timer=setInterval("lunbo()",3000);
+					})
+				}
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div id="top">
+			<div class="login">
+				<a href="#">教师登陆</a>
+				<a href="#">研究生</a>
+				<a href="#">本科生</a>
+			</div>			
+		</div>
+
+		<div id="nav">
+			<ul id="nav_ul">
+				<li>
+					<a href="#">首页</a>
+					<ul></ul>
+				</li>
+				<li>
+					<a href="#" >专业概况</a>
+					<ul></ul>
+				</li>
+
+				<li>
+					<a  href="#" >师资队伍</a>
+					<ul>
+						<li><a href="#">院士</a></li>
+						<li><a href="#">博士生导师</a></li>
+						<li><a href="#">教授</a></li>
+						<li><a href="#">副教授</a></li>
+						<li><a href="#">讲师</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">科学研究</a>
+					<ul>
+						<li><a href="#">学术动态</a></li>
+						<li><a href="#">国际交流</a></li>
+						<li><a href="#">科研成果</a></li>
+						<li><a href="#">毕业设计</a></li>
+						<li><a href="#">研究生设计</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">人才培养</a>
+					<ul>
+						<li><a href="#">培养方案</a></li>
+						<li><a href="#">教学评估</a></li>
+						<li><a href="#">本科生教育</a></li>
+						<li><a href="#">研究生教育</a></li>
+						<li><a href="#">留学生教育</a></li>
+					</ul>
+				</li>
+				<li>
+					<a href="#">学生工作</a>
+					<ul>
+						<li><a href="#">学院活动</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+
+		<div id="pic">
+			<ul class="img">
+				<li index="1">
+					<img src="image/img1.jpg" >
+					<div class="img_info">
+						<a href="#">
+							【消息来源：教务处】为落实中共中央、国务院《关于加强和改进新形势下高校思想政治工作的意见》，推进实施《吉林大学关于加强和改进新形势下本科课堂教学管理的若干意见》，更好的发挥课堂教学育人功能，促进本科各类课程与思想政治理论课同向同行，学校于9月21日下午，在中心校区三教一阶组织开展了第四期教师教学发展思政教育专题系列活动。教育部长江学者特聘教授、宣传部部长韩喜平教授为部分教师做了“与思想政治理论课同向同行”的精彩报告。
+						</a>
+					</div>
+				</li>
+				<li index="2">
+					<img src="image/img2.jpg" >
+					<div class="img_info">
+						<a href="#">
+							【消息来源：白求恩第一医院】为切实落实吉林大学与通辽市政府校地合作项目, 9月22日，吉林大学白求恩第一医院与通辽市卫计委校地共建医疗合作项目签约仪式在通辽市举行。通辽市委常委、副市长，吉林大学党委副书记冯正玉，通辽市卫计委、吉林大学白求恩第一医院及通辽市各医疗机构负责人参加了签约仪式。冯正玉在仪式上致辞，白求恩第一医院还与通辽市医院、民族大学附属医院、通辽市二院、科尔沁区医院等四家医院签署了集团医院合作协议。
+						</a>
+					</div>
+				</li>
+				<li index="3">
+					<img src="image/img3.jpg" >
+					<div class="img_info">
+						<a href="#">
+							【吉林大学报研究生记者 张航/文/摄】9月27日，吉林大学大型原创话剧《唐敖庆》在鼎新大讲堂再次隆重上演。话剧《唐敖庆》的演出是为了纪念著名化学家、教育家、吉林大学老校长唐敖庆院士，也是庆祝吉林大学建校71周年系列活动之一。为使话剧《唐敖庆》被更多师生熟知，加强新生爱校荣校教育，学校决定再次演出话剧《唐敖庆》。演职人员的倾情演绎为近千名现场师生带来了一场丰富的视觉盛宴。
+						</a>
+					</div>
+				</li>
+				<li index="4">
+					<img src="image/img4.jpg" >
+					<div class="img_info">
+						<a href="#">
+							【本站综合】日前，教育部、财政部、国家发展改革委印发《关于公布世界一流大学和一流学科建设高校及建设学科名单的通知》，公布世界一流大学和一流学科（简称“双一流”）建设高校及建设学科名单。
+						</a>
+					</div>
+				</li>
+			</ul>
+			<ul class="img_number">
+				<li index="1"></li>
+				<li index="2"></li>
+				<li index="3"></li>
+				<li index="4"></li>
+			</ul>
+		</div>
+
+		<div id="message">
+			<div class="news">
+				<div class="news_icon"></div>
+				<div class="news_title">
+					新闻动态/News
+				</div>
+				<a href="#">more</a>
+				<div class="news_line"></div>
+				<ul>
+
+					<li>
+						<a href="#">用好课堂教学主渠道 与思想政治理论课同向同行</a>
+						<span>2017/11/12</span>
+					</li>
+					<li>
+						<a href="#">吉林大学组织港澳台侨学生参加青年学生走访名医名家活动</a>
+						<span>2017/09/18</span>
+					</li>
+					<li>
+						<a href="#">吉林大学妇委会“巾帼心向党•喜迎十九大”主题活动</a>
+						<span>2017/09/12</span>
+					</li>
+					<li>
+						<a href="#">吉林大学第五届教职工篮球赛落下帷幕</a>
+						<span>2017/08/09</span>
+					</li>
+					<li>
+						<a href="#">白求恩第一医院与通辽市卫计委签署校地共建医疗合作协议</a>
+						<span>2017/07/22</span>
+					</li>
+						<li>
+						<a href="#">用好课堂教学主渠道 与思想政治理论课同向同行</a>
+						<span>2017/11/12</span>
+					</li>
+					<li>
+						<a href="#">吉林大学组织港澳台侨学生参加青年学生走访名医名家活动</a>
+						<span>2017/09/18</span>
+					</li>
+					<li>
+						<a href="#">吉林大学妇委会“巾帼心向党•喜迎十九大”主题活动</a>
+						<span>2017/09/12</span>
+					</li>
+					<li>
+						<a href="#">吉林大学第五届教职工篮球赛落下帷幕</a>
+						<span>2017/08/09</span>
+					</li>
+				</ul>
+			</div>
+			<div class="notice">
+				<div class="notice_icon"></div>
+				<div class="notice_title">
+					通知公告/Notices
+				</div>
+				<a href="#">more</a>
+				<div class="notice_line"></div>
+				<ul>
+
+					<li>
+						<a href="#">用好课堂教学主渠道 与思想政治理论课同向同行</a>
+						<span>2017/11/12</span>
+					</li>
+					<li>
+						<a href="#">吉林大学组织港澳台侨学生参加青年学生走访名医名家活动</a>
+						<span>2017/09/18</span>
+					</li>
+					<li>
+						<a href="#">吉林大学妇委会“巾帼心向党•喜迎十九大”主题活动</a>
+						<span>2017/09/12</span>
+					</li>
+					<li>
+						<a href="#">吉林大学第五届教职工篮球赛落下帷幕</a>
+						<span>2017/08/09</span>
+					</li>
+					<li>
+						<a href="#">白求恩第一医院与通辽市卫计委签署校地共建医疗合作协议</a>
+						<span>2017/07/22</span>
+					</li>
+						<li>
+						<a href="#">用好课堂教学主渠道 与思想政治理论课同向同行</a>
+						<span>2017/11/12</span>
+					</li>
+					<li>
+						<a href="#">吉林大学组织港澳台侨学生参加青年学生走访名医名家活动</a>
+						<span>2017/09/18</span>
+					</li>
+					<li>
+						<a href="#">吉林大学妇委会“巾帼心向党•喜迎十九大”主题活动</a>
+						<span>2017/09/12</span>
+					</li>
+					<li>
+						<a href="#">吉林大学第五届教职工篮球赛落下帷幕</a>
+						<span>2017/08/09</span>
+					</li>
+				</ul>
+			</div>
+			<div class="events">
+				<div class="events_icon"></div>
+				<div class="events_title">
+					最近活动/Events
+				</div>
+				<div class="event1">
+					<div class="date">
+						<div class="day">12</div>
+						<div class="month">八月</div>
+					</div>
+					<div class="content"><a href="#">点名</a></div>
+					<div class="time">18:00</div>
+					<div class="address">第一教学楼5阶</div>
+				</div>
+				<div class="event2">
+					<div class="date">
+						<div class="day">9</div>
+						<div class="month">六月</div>
+					</div>
+					<div class="content"><a href="#">嘉年华</a></div>
+					<div class="time">9:00~18:00</div>
+					<div class="address">新生广场</div>
+				</div>
+				<div class="events_line"></div>
+			</div>
+			<div class="link">
+				<div class="link_icon"></div>
+				<div class="link_title">
+					相关链接/Links
+				</div>				
+				<div class="link_line"></div>
+				<ul class="content">
+					<li><a href="#">信息公开</a></li>
+					<li><a href="#">校长在线</a></li>
+					<li><a href="#">校园文化</a></li>
+					<li><a href="#">新闻中心</a></li>
+					<li><a href="#">招才纳贤</a></li>
+					<li><a href="#">吉大校友</a></li>
+					<li><a href="#">服务指南</a></li>
+					<li><a href="#">吉大图库</a></li>
+					<li><a href="#">牡丹园</a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
